@@ -29,5 +29,16 @@ public class BankAccountTest {
 	    assertTrue(account.withdrawMoney(100.0));
 	    assertEquals("Balance should be reduced correctly", 0.0, account.getBalance(), 0.001);
 	}
+	
+	@Test
+	public void jacoco_coverage_extension() {
+		BankAccount account = new BankAccount();
+		account.setWithdrawLimit(1000);
+		assertTrue(account.getBalance()==0);
+		account.depositMoney(300);
+		assertTrue(account.withdrawMoney(200));
+		assertTrue(account.getBalance()==100);
+		assertTrue(account.getAmountWithdrawn()==200);
+	}
 
 }
